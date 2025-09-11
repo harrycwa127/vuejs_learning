@@ -1,36 +1,30 @@
 <template>
-	<div id="app-container">
-		<NavBar :navItems="navItems" @navItemClicked="handleNavItemClicked" />
-		<ContentView :activeView="activeView" />
-	</div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view/>
 </template>
 
-<script>
-import NavBar from './components/NavBar.vue';
-import ContentView from './components/ContentView.vue';
-
-export default {
-	name: 'App',
-	data() {
-		return {
-			navItems: ['Home', 'About', 'Services', 'Contact', 'Help'],
-			activeView: 'Home'
-		}
-	},
-	components: {
-		NavBar,
-		ContentView
-	},
-	methods: {
-		handleNavItemClicked(item) {
-			this.activeView = item;
-		}
-	}
-}
-</script>
-
 <style>
-body {
-	background-color: #121212;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
