@@ -1,7 +1,9 @@
 <template>
 	<div class="navBar">
 		<img class="navIcon" src="../assets/logo.png" alt="Logo" height="30" />
-		<button class="navItem" v-for="(item, index) in navItems" :key="index">{{ item }}</button>
+		<button class="navItem" v-for="(item, index) in navItems" :key="index" @click="$emit('navItemClicked', item)">
+			{{ item }}
+		</button>
 	</div>
 </template>
 
@@ -10,7 +12,8 @@ export default {
 	name: 'NavBar',
 	props: {
 		navItems: Array
-	}
+	},
+	emits: ['navItemClicked']
 }
 </script>
 
@@ -21,12 +24,13 @@ div.navBar {
 	color: #e4e4e4;
 	display: flex;
 	align-items: center;
+	margin-bottom: 5px;
 }
 
 button.navItem {
 	background-color: inherit;
 	border: none;
-	color: white;
+	color: #e4e4e4;
 	margin-left: 10px;
 	margin-left: 10px;
 	cursor: pointer;
