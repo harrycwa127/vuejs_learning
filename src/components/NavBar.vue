@@ -16,9 +16,9 @@ export default {
 
 <style scoped>
 div.navBar {
-	background-color: #333;
+	background-color: #2e2e2e;
 	padding: 10px;
-	color: white;
+	color: #e4e4e4;
 	display: flex;
 	align-items: center;
 }
