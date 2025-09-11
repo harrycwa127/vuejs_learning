@@ -14,11 +14,9 @@ export default {
 </script>
 
 <style scoped>
-div.contentView {
-	background-color: #2e2e2e;
+/* div.contentView {
 	padding: 10px;
-	color: #e4e4e4;
 	display: flex;
 	align-items: center;
-}
+} */
 </style>

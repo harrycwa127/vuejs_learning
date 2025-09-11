@@ -1,5 +1,63 @@
 <template>
-  <div class="login">
-    <h1>This is an login page</h1>
-  </div>
+	<div class="login">
+		<div class="loginDiv">
+			<h1 class="title">Login</h1>
+
+			<div class="row">
+				<label for="username">Username: </label>
+				<input type="text" placeholder="Username" />
+			</div>
+			<div class="row">
+				<label for="password">Password: </label>
+				<input type="password" placeholder="Password" />
+			</div>
+			<div class="loginBtnRow">
+				<button class="loginBtn" @click="handleLogin">Login</button>
+			</div>
+		</div>
+	</div>
 </template>
+<script>
+export default {
+	name: 'LoginView',
+	methods: {
+		handleLogin() {
+			this.$router.push('/home');
+		}
+	}
+};
+</script>
+
+<style scoped>
+div.login {
+	display: grid;
+	height: 100vh;
+	place-items: center;
+	align-items: center;
+}
+
+div.contentDiv {
+	display: grid;
+	justify-content: center;
+	width: 25%;
+}
+
+.title {
+	text-align: center;
+}
+
+.row {
+	display: grid;
+	margin-bottom: 10px;
+}
+
+.loginBtnRow {
+	justify-content: center;
+
+	&>button {
+		width: 100%;
+		background-color: #13294d;
+		color: #a1a2ab;
+	}
+}
+</style>

@@ -14,7 +14,7 @@ export default {
   name: 'HomeView',
   data() {
 		return {
-			navItems: ['Home', 'About', 'Services', 'Contact', 'Help'],
+			navItems: ['Home', 'About', 'Services', 'Contact', 'Help', 'Logout'],
 			activeView: 'Home'
 		}
 	},
@@ -24,14 +24,15 @@ export default {
 	},
 	methods: {
 		handleNavItemClicked(item) {
-			this.activeView = item;
+      if(item === 'Logout'){
+        this.$router.push('/');
+      }else{
+        this.activeView = item;
+      }
 		}
 	}
 }
 </script>
 
-<style>
-body {
-	background-color: #121212;
-}
+<style scoped>
 </style>
