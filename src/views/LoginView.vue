@@ -44,6 +44,7 @@ div.contentDiv {
 
 .title {
 	text-align: center;
+	margin-top: 10px
 }
 
 .row {
@@ -59,5 +60,11 @@ div.contentDiv {
 		background-color: #393e46;
 		color: #dfd0b8;
 	}
+}
+
+div.loginDiv {
+	background-color: #393e46;
+	padding: 30px;
+	border-radius: 10px;
 }
 </style>

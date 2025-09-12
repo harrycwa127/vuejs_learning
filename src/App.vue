@@ -4,7 +4,7 @@
 
 <style>
 body {
-	background-color: #222831;
-	color: #dfd0b8;
+	background-color: #121212;
+	color: #e6e6e6;
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
 	<div class="contentView">
-		<h1>{{ activeView.name }}</h1>
-		<router-view></router-view>
+		<h3 class="title">{{ activeView.name }}</h3>
+		<div class="content">
+			<router-view />
+		</div>
 	</div>
 </template>
 
@@ -24,9 +26,27 @@ export default {
 </script>
 
 <style scoped>
-/* div.contentView {
-	padding: 10px;
-	display: flex;
-	align-items: center;
-} */
+div.contentView {
+	padding: 20px;
+	background-color: #393e46;
+	min-height: 600px;
+}
+
+h3.title {
+	margin: 0;
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+div.content {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+<style>
+div.content {
+	background-color: #393e46;
+	color: #e6e6e6;
+}
 </style>
