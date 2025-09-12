@@ -2,7 +2,7 @@
 	<div class="navBar">
 		<img class="navIcon" src="../assets/logo.png" alt="Logo" height="30" />
 		<button class="navItem" v-for="(item, index) in navItems" :key="index" @click="$emit('navItemClicked', item)">
-			{{ item }}
+			{{ item.name }}
 		</button>
 	</div>
 </template>
@@ -11,7 +11,13 @@
 export default {
 	name: 'NavBar',
 	props: {
-		navItems: Array
+		navItems: {
+			type: Array,
+			default: () => [{
+				name: 'Home',
+				url: '/home'
+			}]
+		}
 	},
 	emits: ['navItemClicked']
 }

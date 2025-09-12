@@ -56,8 +56,8 @@ div.contentDiv {
 
 	&>button {
 		width: 100%;
-		background-color: #13294d;
-		color: #a1a2ab;
+		background-color: #393e46;
+		color: #dfd0b8;
 	}
 }
 </style>

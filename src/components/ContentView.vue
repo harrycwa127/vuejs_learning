@@ -1,6 +1,7 @@
 <template>
 	<div class="contentView">
-		<h1>{{ activeView }}</h1>
+		<h1>{{ activeView.name }}</h1>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -8,7 +9,16 @@
 export default {
 	name: 'ContentView',
 	props: {
-		activeView: String
+		activeView: {
+			type: Object,
+			default: () => ({ name: 'Home', url: '/home' })
+		}
+	},
+	watch: {
+		activeView(newVal) {
+			this.$router.push(newVal.url);
+		},
+		deep: true
 	}
 }
 </script>
