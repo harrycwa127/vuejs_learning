@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import LoginView from "@/views/LoginView.vue";
-import HomeView from "@/components/appContentViews/HomeView.vue";
 
 const routes = [
   {
@@ -14,9 +13,16 @@ const routes = [
     components: {
       default: () =>
         import(/* webpackChunkName: "home" */ "../views/AppContent.vue"),
-      contentView: HomeView,
     },
     children: [
+      {
+        path: "",
+        name: "homeContent",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "@/components/appContentViews/HomeView.vue"
+          ),
+      },
       {
         path: "about",
         name: "about",
