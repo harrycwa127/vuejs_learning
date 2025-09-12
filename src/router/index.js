@@ -12,29 +12,42 @@ const routes = [
     path: "/home",
     name: "home",
     components: {
-      default: () => import(/* webpackChunkName: "home" */ "../views/AppContent.vue"),
+      default: () =>
+        import(/* webpackChunkName: "home" */ "../views/AppContent.vue"),
       contentView: HomeView,
     },
     children: [
       {
         path: "about",
         name: "about",
-        component: () => import(/* webpackChunkName: "home" */ '@/components/appContentViews/AboutView.vue') ,
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "@/components/appContentViews/AboutView.vue"
+          ),
       },
       {
         path: "services",
         name: "services",
-        component: () => import(/* webpackChunkName: "home" */ '@/components/appContentViews/ServicesView.vue') ,
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "@/components/appContentViews/ServicesView.vue"
+          ),
       },
       {
         path: "contact",
         name: "contact",
-        component: () => import(/* webpackChunkName: "home" */ '@/components/appContentViews/ContactView.vue'),
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "@/components/appContentViews/ContactView.vue"
+          ),
       },
       {
         path: "help",
         name: "help",
-        component: () => import(/* webpackChunkName: "home" */ '@/components/appContentViews/HelpView.vue') ,
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "@/components/appContentViews/HelpView.vue"
+          ),
       },
     ],
   },

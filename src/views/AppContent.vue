@@ -14,12 +14,12 @@ export default {
 	name: 'AppContent',
 	data() {
 		return {
-			navItems: [{ name: 'Home', url: '/home' }, 
-						{ name: 'About', url: '/home/about' }, 
-						{ name: 'Services', url: '/home/services' }, 
-						{ name: 'Contact', url: '/home/contact' }, 
-						{ name: 'Help', url: '/home/help' }, 
-						{ name: 'Logout', url: '/' }],
+			navItems: [{ name: 'Home', url: '/home' },
+			{ name: 'About', url: '/home/about' },
+			{ name: 'Services', url: '/home/services' },
+			{ name: 'Contact', url: '/home/contact' },
+			{ name: 'Help', url: '/home/help' },
+			{ name: 'Logout', url: '/' }],
 			activeView: 'Home'
 		}
 	},
