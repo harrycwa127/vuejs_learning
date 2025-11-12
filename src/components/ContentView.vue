@@ -29,7 +29,8 @@ export default {
 div.contentView {
 	padding: 20px;
 	background-color: #D9CFC7;
-	min-height: 600px;
+	height: calc(100vh - 131px);
+	/* height - navBar height 75px - content padding 16px - contentView 40px padding */
 }
 
 h2.title {
@@ -38,10 +39,10 @@ h2.title {
 	padding-bottom: 10px;
 }
 
-div.content {
+/* div.content {
 	width: 100%;
 	height: 100%;
-}
+} */
 </style>
 
 <style>

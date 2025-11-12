@@ -57,8 +57,8 @@ div.contentDiv {
 
 	&>button {
 		width: 100%;
-		background-color: #c9b59c;
-		color: black;
+		background-color: #53629e;
+        color: white;
 		padding: 3px;
 		border-radius: 10px;
 		cursor: pointer;

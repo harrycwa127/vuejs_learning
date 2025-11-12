@@ -41,7 +41,7 @@ div.navBar {
 	padding: 10px;
 	display: flex;
 	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 div.navItems {

@@ -1,5 +1,5 @@
 <template>
-	<div id="home">
+	<div id="appContent">
 		<NavBar :navItems="navItems" @navItemClicked="handleNavItemClicked" />
 		<ContentView :activeView="activeView" />
 	</div>
@@ -41,4 +41,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style>
+#appContent {
+	height: calc(100vh - 16px);
+}
+</style>
