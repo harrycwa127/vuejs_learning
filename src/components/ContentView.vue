@@ -29,7 +29,7 @@ export default {
 div.contentView {
 	padding: 20px;
 	background-color: #D9CFC7;
-	height: calc(100vh - 131px);
+	min-height: calc(100vh - 131px);
 	/* height - navBar height 75px - content padding 16px - contentView 40px padding */
 }
 

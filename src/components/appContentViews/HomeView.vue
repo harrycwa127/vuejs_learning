@@ -1,6 +1,6 @@
 <template>
 	<div class="about">
-		<p>This is a website built with Vue.js for learning</p>
+		<p>Welcome to my website for learning Vue.js</p>
 		<div class="vueIconDiv">
 			<img class="vueIcon" src="../../assets/logo.png" alt="vueIcon" />
 		</div>

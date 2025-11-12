@@ -1,6 +1,7 @@
 <template>
 	<div class="about">
-		<h1>This is an about page</h1>
+		<p>This is a website built with Vue.js for learning</p>
+		<p>Which is using history mode and try to using most of vue.js features</p>
 	</div>
 </template>
 
