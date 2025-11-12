@@ -37,20 +37,24 @@ export default {
 
 <style scoped>
 div.navBar {
-	background-color: #393e46;
+	background-color: #D9CFC7;
 	padding: 10px;
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
 }
 
+div.navItems {
+	display: flex;
+    height: 2rem;
+}
+
 button.navItem {
 	background-color: inherit;
 	border: none;
-	color: #e6e6e6;
-	margin-left: 10px;
-	margin-left: 10px;
+	color: black;
 	cursor: pointer;
+	width: 5rem;
 }
 
 img.navIcon {
@@ -58,7 +62,7 @@ img.navIcon {
 }
 
 button.navItem.active {
-	background-color: #948979;
-	color: #222831;
+	background-color: #C9B59C;
+	color: black;
 }
 </style>

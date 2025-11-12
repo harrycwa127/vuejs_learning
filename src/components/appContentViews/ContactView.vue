@@ -1,8 +1,7 @@
 <template>
 	<div class="contact">
-		<h1>Contact!</h1>
-		<p>Email or Whatsapp to contact me.</p>
-		<p></p>
+		<p>Email: <a href="mailto:harrytchei@gmail.com" target="_blank">harrytchei@gmail.com</a></p>
+		<p>Github: <a href="https://github.com/harrycwa127" target="_blank">https://github.com/harrycwa127</a></p>
 	</div>
 </template>
 
@@ -11,3 +10,9 @@ export default {
 	name: 'ContactView'
 };
 </script>
+
+<style>
+a {
+	color: black;
+}
+</style>

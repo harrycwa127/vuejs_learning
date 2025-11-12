@@ -1,6 +1,6 @@
 <template>
 	<div class="contentView">
-		<h3 class="title">{{ activeView.name }}</h3>
+		<h2 class="title">{{ activeView.name }}</h2>
 		<div class="content">
 			<router-view />
 		</div>
@@ -28,11 +28,11 @@ export default {
 <style scoped>
 div.contentView {
 	padding: 20px;
-	background-color: #393e46;
+	background-color: #D9CFC7;
 	min-height: 600px;
 }
 
-h3.title {
+h2.title {
 	margin: 0;
 	padding-top: 0px;
 	padding-bottom: 10px;
@@ -46,7 +46,7 @@ div.content {
 
 <style>
 div.content {
-	background-color: #393e46;
-	color: #e6e6e6;
+	background-color: #D9CFC7;
+	color: black;
 }
 </style>

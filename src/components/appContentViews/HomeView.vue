@@ -1,6 +1,9 @@
 <template>
 	<div class="about">
-		<h1>This is an Home page</h1>
+		<p>This is a website built with Vue.js for learning</p>
+		<div class="vueIconDiv">
+			<img class="vueIcon" src="../../assets/logo.png" alt="vueIcon" />
+		</div>
 	</div>
 </template>
 
@@ -9,3 +12,11 @@ export default {
 	name: 'HomeView'
 };
 </script>
+
+<style>
+	div.vueIconDiv {
+		display: flex;
+		justify-content: center;
+		margin-top: 5rem;
+	}
+</style>

@@ -57,13 +57,16 @@ div.contentDiv {
 
 	&>button {
 		width: 100%;
-		background-color: #393e46;
-		color: #dfd0b8;
+		background-color: #c9b59c;
+		color: black;
+		padding: 3px;
+		border-radius: 10px;
+		cursor: pointer;
 	}
 }
 
 div.loginDiv {
-	background-color: #393e46;
+	background-color: #D9CFC7;
 	padding: 30px;
 	border-radius: 10px;
 }
