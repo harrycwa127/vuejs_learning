@@ -69,5 +69,6 @@ div.loginDiv {
 	background-color: #D9CFC7;
 	padding: 30px;
 	border-radius: 10px;
+	border: 1px solid gray;
 }
 </style>
