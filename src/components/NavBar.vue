@@ -56,7 +56,7 @@ div.navBar {
 
 div.navItems {
 	display: flex;
-	height: calc(1rem + 2.5vh);
+	height: calc(1rem + 2vh);
 	justify-content: flex-start;
 	flex-grow: 1;
 }
@@ -65,14 +65,13 @@ div.navItems div.navItem {
 	padding-left: 0.5vw;
 	padding-right: 0.5vw;
 	padding-bottom: 0.5vh;
-	height: calc(1rem + 1vh);
+	padding-top: 0.5vh;
+	height: 1.2rem;
 
 	&:not(:last-child) {
 		border-right: black 1px solid;
 	}
 }
-
-
 
 button.navItemBtn {
 	background-color: inherit;
@@ -82,7 +81,6 @@ button.navItemBtn {
 	padding-left: 1vw;
 	padding-right: 1vw;
 	padding-bottom: 1vh;
-	padding-top: 1vh;
 }
 
 button.navItemBtn.active {
