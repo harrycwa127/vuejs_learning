@@ -2,9 +2,18 @@
 	<div class="navBar">
 		<img class="navIcon" src="../assets/logo.png" alt="Logo" height="50" />
 		<div class="navItems">
-			<button class="navItem" v-for="(item, index) in navItems" :key="index" @click="handelNavItemClicked(item)">
-				{{ item.name }}
-			</button>
+			<div class="navItem" v-for="(item, index) in navItems" :key="index">
+				<button class="navItemBtn" @click="handelNavItemClicked(item)">
+					{{ item.name }}
+				</button>
+			</div>
+		</div>
+		<div class="navItems-right">
+			<div class="navItem">
+				<button class="navItemBtn" @click="handelNavItemClicked({ name: 'Logout', url: '/' })">
+					<img src="../assets/logout.svg" alt="Logout" height="40" />
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -24,13 +33,13 @@ export default {
 	methods: {
 		handelNavItemClicked(item) {
 			this.$emit('navItemClicked', item);
-			window.$('div.navItems button.navItem').removeClass('active');
-			window.$(`div.navItems button.navItem:contains(${item.name})`).addClass('active');
+			window.$('div.navItems div.navItem button.navItemBtn').removeClass('active');
+			window.$(`div.navItems div.navItem button.navItemBtn:contains(${item.name})`).addClass('active');
 		}
 	},
 	emits: ['navItemClicked'],
 	mounted() {
-		window.$('div.navItems button.navItem:contains(Home)').addClass('active');
+		window.$('div.navItems div.navItem button.navItemBtn:contains(Home)').addClass('active');
 	}
 }
 </script>
@@ -40,29 +49,47 @@ div.navBar {
 	background-color: #D9CFC7;
 	padding: 10px;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 5px;
 }
 
 div.navItems {
 	display: flex;
-    height: 2rem;
+	height: calc(1rem + 2.5vh);
+	justify-content: flex-start;
+	flex-grow: 1;
 }
 
-button.navItem {
+div.navItems div.navItem {
+	padding-left: 0.5vw;
+	padding-right: 0.5vw;
+	padding-bottom: 0.5vh;
+	height: calc(1rem + 1vh);
+
+	&:not(:last-child) {
+		border-right: black 1px solid;
+	}
+}
+
+
+
+button.navItemBtn {
 	background-color: inherit;
 	border: none;
 	color: black;
 	cursor: pointer;
-	width: 5rem;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	padding-bottom: 1vh;
+	padding-top: 1vh;
+}
+
+button.navItemBtn.active {
+	border-bottom: 3px solid #53629e;
 }
 
 img.navIcon {
 	margin-right: 20px;
-}
-
-button.navItem.active {
-	background-color: #C9B59C;
-	color: black;
 }
 </style>

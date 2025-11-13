@@ -20,7 +20,6 @@ export default {
 				{ name: 'Services', url: '/home/services' },
 				{ name: 'Contact', url: '/home/contact' },
 				{ name: 'Help', url: '/home/help' },
-				{ name: 'Logout', url: '/' }
 			],
 			activeView: { name: 'Home', url: '/home' }
 		}
