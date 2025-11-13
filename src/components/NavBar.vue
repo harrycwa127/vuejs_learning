@@ -78,12 +78,15 @@ button.navItemBtn {
 	border: none;
 	color: black;
 	cursor: pointer;
+}
+
+div.navItems button.navItemBtn {
 	padding-left: 1vw;
 	padding-right: 1vw;
 	padding-bottom: 1vh;
 }
 
-button.navItemBtn.active {
+div.navItems button.navItemBtn.active {
 	border-bottom: 3px solid #53629e;
 }
 
