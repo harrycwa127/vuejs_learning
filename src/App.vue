@@ -4,7 +4,8 @@
 
 <style>
 body {
-	background-color: #EFE9E3;
+	background-color: #f9f8f6;
 	color: black;
+	margin: 0px;
 }
 </style>

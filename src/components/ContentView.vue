@@ -28,8 +28,7 @@ export default {
 <style scoped>
 div.contentView {
 	padding: 20px;
-	background-color: #D9CFC7;
-	min-height: calc(100vh - 131px);
+	min-height: calc(100vh - 105px);
 	/* height - navBar height 75px - content padding 16px - contentView 40px padding */
 }
 
@@ -39,15 +38,10 @@ h2.title {
 	padding-bottom: 10px;
 }
 
-/* div.content {
-	width: 100%;
-	height: 100%;
-} */
 </style>
 
 <style>
 div.content {
-	background-color: #D9CFC7;
 	color: black;
 }
 </style>
