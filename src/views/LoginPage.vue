@@ -19,7 +19,7 @@
 </template>
 <script>
 export default {
-	name: 'LoginView',
+	name: 'LoginPage',
 	methods: {
 		handleLogin() {
 			this.$router.push('/home');

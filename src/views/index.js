@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import LoginPage from "@/views/LoginPage.vue";
-import ErrorPage from "@/views/ErrorPage.vue";
+import ErrorPage from "@/views/LoginPage.vue";
 
 
 const routes = [
