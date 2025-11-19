@@ -1,6 +1,6 @@
 # vuejs_learning
 
-Vue Project with Routering and Option API
+this Vue project built using Vue CLI, including routing and options APIs.
 
 ## Project setup
 
