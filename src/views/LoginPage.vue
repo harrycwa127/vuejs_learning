@@ -17,12 +17,23 @@
 		</div>
 	</div>
 </template>
+
 <script>
+import accounts from '@/assets/account.json';
+
 export default {
 	name: 'LoginPage',
 	methods: {
 		handleLogin() {
-			this.$router.push('/home');
+			const username = document.querySelector('input[placeholder="Username"]').value;
+			const password = document.querySelector('input[placeholder="Password"]').value;
+
+			const account = accounts.find(acc => acc.name === username && acc.password === password);
+			if(account){
+				this.$router.push('/home');
+			}else{
+				alert('Invalid username or password');
+			}
 		}
 	}
 };
