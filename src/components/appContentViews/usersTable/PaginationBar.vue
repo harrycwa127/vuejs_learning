@@ -70,6 +70,8 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	gap: 10px;
+	width: 50%;
+	min-width: 40rem;
 
 	& button {
 		background: #1a3d64;
