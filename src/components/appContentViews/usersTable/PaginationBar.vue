@@ -1,13 +1,13 @@
 <template>
 	<div class="pagination-container">
 		<div class="pagination-info">
-			顯示第 {{ startItem }}-{{ endItem }} 項，共 {{ totalItems }} 項結果
+			Showing {{ startItem }} to {{ endItem }} of {{ totalItems }} entries
 		</div>
 
 		<div class="pagination-controls">
 			<button class="pagination-btn prev-btn" :disabled="currentPage === 1"
 				@click="$emit('page-change', currentPage - 1)">
-				← 上一頁
+				← Pervious
 			</button>
 
 			<div class="page-numbers">
@@ -19,7 +19,7 @@
 
 			<button class="pagination-btn next-btn" :disabled="currentPage === totalPages"
 				@click="$emit('page-change', currentPage + 1)">
-				下一頁 →
+				Next →
 			</button>
 		</div>
 	</div>
@@ -80,6 +80,16 @@
 		border-radius: 8px;
 		cursor: pointer;
 		transition: background 0.2s;
+	}
+}
+
+.page-numbers .page-btn {
+	background: none;
+	color: black;
+
+	&.active {
+		background: #1a3d64;
+		color: white;
 	}
 }
 </style>

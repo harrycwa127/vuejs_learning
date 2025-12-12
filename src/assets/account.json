@@ -5,7 +5,62 @@
         "password": "P@ssw0rd"
     },
     {
+        "name": "officer",
+        "role": "admin",
+        "password": "P@ssw0rd"
+    },
+    {
         "name": "user",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user1",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user2",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user3",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user4",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user5",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user6",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user7",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user8",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user9",
+        "role": "user",
+        "password": "P@ssw0rd"
+    },
+    {
+        "name": "user10",
         "role": "user",
         "password": "P@ssw0rd"
     }
