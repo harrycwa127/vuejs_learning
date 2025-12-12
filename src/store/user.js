@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import accounts from '@/assets/account.json';
 
 const navItems =[
 	{ name: 'Home', url: '/home' },
@@ -12,7 +13,8 @@ export const useUserStore = defineStore('user', {
     state: () => ({
         name: '',
         role: '',
-        navItems: [...navItems]
+        navItems: [...navItems],
+        users: [...accounts]
     }),
     actions: {
         setUser(user) {
@@ -28,6 +30,9 @@ export const useUserStore = defineStore('user', {
             this.name = '';
             this.role = '';
             this.navItems = [...navItems];
+        },
+        addUser(user){
+            this.users.push(user);
         }
     }
 });

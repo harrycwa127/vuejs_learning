@@ -1,0 +1,23 @@
+button:not(.navItemBtn) {
+    background: #1a3d64;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+
+    &:focus {
+        outline: none;
+        border-color: #53629e;
+        box-shadow: 0 0 5px rgba(83, 98, 158, 0.5);
+    }
+}
