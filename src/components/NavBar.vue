@@ -33,13 +33,13 @@ export default {
 	methods: {
 		handelNavItemClicked(item) {
 			this.$emit('navItemClicked', item);
-			window.$('div.navItems div.navItem button.navItemBtn').removeClass('active');
-			window.$(`div.navItems div.navItem button.navItemBtn:contains(${item.name})`).addClass('active');
+			Array.from(document.querySelectorAll('div.navItems div.navItem button.navItemBtn')).forEach(e => e.classList.remove('active'));
+			Array.from(document.querySelectorAll(`div.navItems div.navItem button.navItemBtn`)).filter(e => e.textContent.includes(item.name)).forEach(e => e.classList.add('active'));
 		}
 	},
 	emits: ['navItemClicked'],
 	mounted() {
-		window.$('div.navItems div.navItem button.navItemBtn:contains(Home)').addClass('active');
+		Array.from(document.querySelectorAll('div.navItems div.navItem button.navItemBtn')).filter(e => e.textContent.includes('Home')).forEach(e => e.classList.add('active'));
 	}
 }
 </script>
