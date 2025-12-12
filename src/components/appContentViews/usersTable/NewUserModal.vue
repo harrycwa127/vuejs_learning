@@ -1,43 +1,45 @@
 <template>
-    <div v-if="visible" class="modal-overlay" @click.self="close">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">✍ Create User</h3>
-                <button class="close-btn" @click="close">×</button>
-            </div>
+    <teleport to="body">
+        <div v-if="visible" class="modal-overlay" @click.self="close">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">✍ Create User</h3>
+                    <button class="close-btn" @click="close">×</button>
+                </div>
 
-            <div class="modal-body">
-                <form class="create-form">
-                    <div class="form-section">
-                        <div class="form-row">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" v-model="formData.name" required />
+                <div class="modal-body">
+                    <form class="create-form">
+                        <div class="form-section">
+                            <div class="form-row">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" v-model="formData.name" required />
+                            </div>
+
+                            <div class="form-row">
+                                <label for="role">Role:</label>
+                                <input type="text" id="role" v-model="formData.role" required />
+                            </div>
+
+                            <div class="form-row">
+                                <label for="new-password">Password:</label>
+                                <input type="password" id="new-password" v-model="formData.password" required />
+                            </div>
+
+                            <div class="form-row">
+                                <label for="confirm-password">Confirm Password:</label>
+                                <input type="password" id="confirm-password" v-model="formData.confirmPassword" required />
+                            </div>
                         </div>
 
-                        <div class="form-row">
-                            <label for="role">Role:</label>
-                            <input type="text" id="role" v-model="formData.role" required />
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn" @click="close">Cancel</button>
+                            <button type="submit" class="create-btn" @click="submitUser">Create</button>
                         </div>
-
-                        <div class="form-row">
-                            <label for="new-password">Password:</label>
-                            <input type="password" id="new-password" v-model="formData.password" required />
-                        </div>
-
-                        <div class="form-row">
-                            <label for="confirm-password">Confirm Password:</label>
-                            <input type="password" id="confirm-password" v-model="formData.confirmPassword" required />
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="button" class="cancel-btn" @click="close">Cancel</button>
-                        <button type="submit" class="create-btn" @click="submitUser">Create</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </teleport>
 </template>
 <script>
     import accounts from '@/assets/account.json';
