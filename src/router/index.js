@@ -57,6 +57,14 @@ const routes = [
 				/* webpackChunkName: "home" */ "@/components/appContentViews/HelpView.vue"
 			),
 		},
+		{
+			path: "users",
+			name: "users",
+			component: () =>
+			import(
+				/* webpackChunkName: "home" */ "@/components/appContentViews/UsersView.vue"
+			),
+		},
 		],
 	},
 	{

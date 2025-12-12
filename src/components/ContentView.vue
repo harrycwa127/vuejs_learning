@@ -20,7 +20,6 @@ export default {
 		activeView(newVal) {
 			this.$router.push(newVal.url);
 		},
-		deep: true
 	}
 }
 </script>

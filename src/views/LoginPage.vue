@@ -20,6 +20,7 @@
 
 <script>
 import accounts from '@/assets/account.json';
+import { useUserStore } from '@/store/user';
 
 export default {
 	name: 'LoginPage',
@@ -30,6 +31,8 @@ export default {
 
 			const account = accounts.find(acc => acc.name === username && acc.password === password);
 			if(account){
+				const userStore = useUserStore();
+				userStore.setUser({ name: account.name, role: account.role });
 				this.$router.push('/home');
 			}else{
 				alert('Invalid username or password');

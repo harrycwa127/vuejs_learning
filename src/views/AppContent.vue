@@ -9,18 +9,15 @@
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue';
 import ContentView from '@/components/ContentView.vue';
+import { useUserStore } from '@/store/user';
+
+const userStore = useUserStore();
 
 export default {
 	name: 'AppContent',
 	data() {
 		return {
-			navItems: [
-				{ name: 'Home', url: '/home' },
-				{ name: 'About', url: '/home/about' },
-				{ name: 'Services', url: '/home/services' },
-				{ name: 'Contact', url: '/home/contact' },
-				{ name: 'Help', url: '/home/help' },
-			],
+			navItems: userStore.$state.navItems,
 			activeView: { name: 'Home', url: '/home' }
 		}
 	},
@@ -31,12 +28,13 @@ export default {
 	methods: {
 		handleNavItemClicked(item) {
 			if (item === 'Logout') {
+				userStore.clearUser();
 				this.$router.push('/');
 			} else {
 				this.activeView = item;
 			}
 		}
-	}
+	},
 }
 </script>
 
