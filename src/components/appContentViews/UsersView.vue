@@ -5,6 +5,7 @@
 			<button class="add-btn" @click="addUser">Add</button>
 			<button class="edit-btn" @click="editUser">Edit</button>
 			<button class="del-btn" @click="delUser">Delete</button>
+			<button class="reset-btn" @click="resetUser">Reset</button>
 		</div>
 		<div v-if="filteredAccounts.length > 0">
 			<UserTable ref="userTable" :accounts="paginatedAccounts" :items-per-page="itemsPerPage"/>
@@ -98,6 +99,12 @@ export default {
 			}
 
 			localStorage.users = JSON.stringify(this.accounts);
+			// showSuccess();
+		},
+		resetUser() {
+			localStorage.removeItem('users');
+			this.accounts = [...accounts];
+			this.$refs.userTable.selectedUsers = [];
 			// showSuccess();
 		},
 		showError() {

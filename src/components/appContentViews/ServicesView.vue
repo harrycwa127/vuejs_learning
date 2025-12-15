@@ -6,6 +6,7 @@
       <li>Add New User</li>
       <li>Edit User</li>
       <li>Delete User</li>
+      <li>Reset Users to Default</li>
       <li>About This Website</li>
       <li>Contact Information</li>
     </ul>
