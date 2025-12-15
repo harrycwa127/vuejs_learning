@@ -3,14 +3,15 @@
 		<div class="search-bar">
 			<input v-model="keyword" type="search" placeholder="Username / Role" class="search-box" />
 			<button class="add-btn" @click="addUser">Add</button>
+			<button class="del-btn" @click="delUser">Delete</button>
 		</div>
 		<div v-if="filteredAccounts.length > 0">
-			<UserTable :accounts="paginatedAccounts" />
+			<UserTable ref="userTable" :accounts="paginatedAccounts" :items-per-page="itemsPerPage"/>
 			<PaginationBar v-if="totalPages > 1" :current-page="currentPage" :total-pages="totalPages"
 					:total-items="filteredAccounts.length" :items-per-page="itemsPerPage" @page-change="handlePageChange" />
 		</div>
 		<div v-else class="no-results">No results found.</div>
-		<NewUserModal :visible="showAddUserModal" @close="showAddUserModal = false" @submit="handleNewUser" @submitFail="showError"/>
+		<NewUserModal :visible="showAddUserModal" @close="showAddUserModal = false" @submit="handleNewUser"/>
 	</div>
 </template>
 
@@ -45,13 +46,23 @@ export default {
 			this.showAddUserModal = true;
 		},
 		handleNewUser(newUser) {
-			// allPosts.value.unshift(newExperience)
-
 			this.showShareModal = false
 			this.keyword = ''
 			this.currentPage = 1
 
 			this.accounts.push(newUser);
+			localStorage.users = JSON.stringify(this.accounts);
+			// showSuccess();
+		},
+		delUser() {
+			const selectedUserName = this.$refs.userTable.selectedUsers;
+			if(selectedUserName.length == 0) alert("No user selected!");
+
+			for(let i = 0; i < selectedUserName.length; i++){
+				const username = selectedUserName[i]
+				this.accounts = this.accounts.filter(acc => acc.name !== username);
+			}
+
 			localStorage.users = JSON.stringify(this.accounts);
 			// showSuccess();
 		},
@@ -87,11 +98,14 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 16px;
+
+		& button {
+			margin-left: 0.5rem;
+		}
 	}
 
 	input[type='search'] {
 		width: 100%;
-		margin-right: 2rem;
 
 		&:focus {
 			outline: none;
