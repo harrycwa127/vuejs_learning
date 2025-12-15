@@ -72,11 +72,7 @@ div.contentDiv {
 
 	&>button {
 		width: 100%;
-		background-color: #53629e;
-        color: white;
 		padding: 3px;
-		border-radius: 10px;
-		cursor: pointer;
 	}
 }
 
