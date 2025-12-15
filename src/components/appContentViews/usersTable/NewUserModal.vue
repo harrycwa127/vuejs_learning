@@ -57,7 +57,7 @@
                     role: '',
                     password: '',
                     confirmPassword: ''
-                }      
+                },
             };
         },
         methods: {
@@ -80,7 +80,9 @@
                     return;
                 }
 
-                if(accounts.find(acc => acc.name === this.formData.name)){
+                const users = localStorage.users ? JSON.parse(localStorage.users) : [...accounts];
+
+                if(users.find(acc => acc.name === this.formData.name)){
                     alert("Username already exists!");
                     return;
                 }

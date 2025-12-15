@@ -19,10 +19,7 @@ import UserTable from '@/components/appContentViews/usersTable/UserTable.vue';
 import PaginationBar from '@/components/appContentViews/usersTable/PaginationBar.vue';
 import NewUserModal from '@/components/appContentViews/usersTable/NewUserModal.vue';
 
-import { useUserStore } from '@/store/user';
 import accounts from '@/assets/account.json';
-
-const userStore = useUserStore();
 
 export default {
 	name: 'UsersView',
@@ -33,7 +30,7 @@ export default {
 	},
 	data() {
 		return {
-			accounts: [...accounts.filter(acc => acc.name !== userStore.$state.name)],
+			accounts: localStorage.users ? JSON.parse(localStorage.users) : [...accounts],
 			currentPage: 1,
 			itemsPerPage: 10,
 			keyword: '',
@@ -55,6 +52,7 @@ export default {
 			this.currentPage = 1
 
 			this.accounts.push(newUser);
+			localStorage.users = JSON.stringify(this.accounts);
 			// showSuccess();
 		},
 		showError() {

@@ -14,7 +14,7 @@ export const useUserStore = defineStore('user', {
         name: '',
         role: '',
         navItems: [...navItems],
-        users: [...accounts]
+        users: localStorage.users ? JSON.parse(localStorage.users) : [...accounts]
     }),
     actions: {
         setUser(user) {

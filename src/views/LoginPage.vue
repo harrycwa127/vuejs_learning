@@ -29,7 +29,8 @@ export default {
 			const username = document.querySelector('input[placeholder="Username"]').value;
 			const password = document.querySelector('input[placeholder="Password"]').value;
 
-			const account = accounts.find(acc => acc.name === username && acc.password === password);
+			const users = localStorage.users ? JSON.parse(localStorage.users) : [...accounts];
+			const account = users.find(acc => acc.name === username && acc.password === password);
 			if(account){
 				const userStore = useUserStore();
 				userStore.setUser({ name: account.name, role: account.role });
