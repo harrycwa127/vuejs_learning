@@ -3,6 +3,7 @@
 		<div class="search-bar">
 			<input v-model="keyword" type="search" placeholder="Username / Role" class="search-box" />
 			<button class="add-btn" @click="addUser">Add</button>
+			<button class="edit-btn" @click="editUser">Edit</button>
 			<button class="del-btn" @click="delUser">Delete</button>
 		</div>
 		<div v-if="filteredAccounts.length > 0">
@@ -11,7 +12,7 @@
 					:total-items="filteredAccounts.length" :items-per-page="itemsPerPage" @page-change="handlePageChange" />
 		</div>
 		<div v-else class="no-results">No results found.</div>
-		<UserModal :visible="showAddUserModal" @close="showAddUserModal = false" @submit="handleNewUser"/>
+		<UserModal :visible="showUserModal" :selectedUser="selectedUser" @close="showUserModal = false" @submit="handleNewUser" @edit="handleUpdateUser"/>
 	</div>
 </template>
 
@@ -35,7 +36,8 @@ export default {
 			currentPage: 1,
 			itemsPerPage: 10,
 			keyword: '',
-			showAddUserModal: false
+			showUserModal: false,
+			selectedUser: null
 		};
 	},
 	methods: {
@@ -43,16 +45,48 @@ export default {
 			this.currentPage = page;
 		},
 		addUser() {
-			this.showAddUserModal = true;
+			this.selectedUser = null;
+			this.showUserModal = true;
+		},
+		editUser() {
+			if(this.$refs.userTable.selectedUsers && this.$refs.userTable.selectedUsers.length !== 1){
+				alert("Please select one user!");
+				return;
+			}else{
+				const selectedUser = this.accounts.find(acc => acc.name === this.$refs.userTable.selectedUsers[0]);
+				this.selectedUser = selectedUser;
+
+				this.showUserModal = true;
+			}
 		},
 		handleNewUser(newUser) {
-			this.showShareModal = false
+			this.showUserModal = false
 			this.keyword = ''
 			this.currentPage = 1
 
 			this.accounts.push(newUser);
 			localStorage.users = JSON.stringify(this.accounts);
+
+			// clear selected users in table
+			this.$refs.userTable.selectedUsers = [];
 			// showSuccess();
+		},
+		handleUpdateUser(userName, updatedUser) {
+			this.showUserModal = false
+			this.keyword = ''
+			this.currentPage = 1
+
+			const index = this.accounts.findIndex(acc => acc.name === userName);
+			if(index !== -1){
+				this.accounts.splice(index, 1, updatedUser);
+				localStorage.users = JSON.stringify(this.accounts);
+				// showSuccess();
+			}else{
+				this.showError();
+			}
+
+			// clear selected users in table
+			this.$refs.userTable.selectedUsers = [];
 		},
 		delUser() {
 			const selectedUserName = this.$refs.userTable.selectedUsers;

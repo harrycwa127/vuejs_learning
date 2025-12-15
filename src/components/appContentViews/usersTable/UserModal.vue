@@ -3,7 +3,7 @@
         <div v-if="visible" class="modal-overlay" @click.self="close">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title">✍ Create User</h3>
+                    <h3 class="modal-title">{{ title }}</h3>
                     <button class="close-btn" @click="close">×</button>
                 </div>
 
@@ -33,7 +33,7 @@
 
                         <div class="form-actions">
                             <button type="button" class="cancel-btn" @click="close">Cancel</button>
-                            <button type="submit" class="create-btn" @click="submitUser">Create</button>
+                            <button type="submit" class="create-btn" @click="submitUser">{{ buttonTxt }}</button>
                         </div>
                     </form>
                 </div>
@@ -47,9 +47,10 @@
     export default {
         name: "UserModal",
         props: {
-            visible: { type: Boolean, default: false }
+            visible: { type: Boolean, default: false },
+            selectedUser: { type: Object, default: () => null }
         },
-        emits: ['close', 'submit'],
+        emits: ['close', 'submit', 'edit'],
         data() {
             return {
                 formData: {
@@ -58,7 +59,26 @@
                     password: '',
                     confirmPassword: ''
                 },
+                title: '✍ Create User',
+                buttonTxt: 'Create'
             };
+        },
+        watch: {
+            selectedUser(newVal) {
+                if (newVal) {
+                    this.formData.name = newVal.name || '';
+                    this.formData.role = newVal.role || '';
+                    this.formData.password = '';
+                    this.formData.confirmPassword = '';
+
+                    this.title = '✍ Edit User';
+                    this.buttonTxt = 'Update';
+                } else {
+                    this.resetForm();
+                    this.title = '✍ Create User';
+                    this.buttonTxt = 'Create';
+                }
+            }
         },
         methods: {
             close() {
@@ -93,8 +113,11 @@
                     password: this.formData.password
                 }
 
-
-                this.$emit('submit', newUser)
+                if(this.selectedUser === null){
+                    this.$emit('submit', newUser)
+                }else{
+                    this.$emit('edit', this.selectedUser.name, newUser)
+                }
 
                 this.close()
                 this.resetForm()
