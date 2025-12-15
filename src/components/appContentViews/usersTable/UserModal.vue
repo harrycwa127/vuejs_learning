@@ -45,7 +45,7 @@
     import accounts from '@/assets/account.json';
 
     export default {
-        name: "NewUserModal",
+        name: "UserModal",
         props: {
             visible: { type: Boolean, default: false }
         },

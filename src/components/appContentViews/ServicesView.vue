@@ -1,6 +1,14 @@
 <template>
   <div class="services">
-    <h1>This is an services page</h1>
+    <p>Function provided in this simple website</p>
+    <ul>
+      <li>View Users</li>
+      <li>Add New User</li>
+      <li>Edit User</li>
+      <li>Delete User</li>
+      <li>About This Website</li>
+      <li>Contact Information</li>
+    </ul>
   </div>
 </template>
 

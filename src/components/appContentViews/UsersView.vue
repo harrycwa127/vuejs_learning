@@ -11,14 +11,14 @@
 					:total-items="filteredAccounts.length" :items-per-page="itemsPerPage" @page-change="handlePageChange" />
 		</div>
 		<div v-else class="no-results">No results found.</div>
-		<NewUserModal :visible="showAddUserModal" @close="showAddUserModal = false" @submit="handleNewUser"/>
+		<UserModal :visible="showAddUserModal" @close="showAddUserModal = false" @submit="handleNewUser"/>
 	</div>
 </template>
 
 <script>
 import UserTable from '@/components/appContentViews/usersTable/UserTable.vue';
 import PaginationBar from '@/components/appContentViews/usersTable/PaginationBar.vue';
-import NewUserModal from '@/components/appContentViews/usersTable/NewUserModal.vue';
+import UserModal from '@/components/appContentViews/usersTable/UserModal.vue';
 
 import accounts from '@/assets/account.json';
 
@@ -27,7 +27,7 @@ export default {
 	components: {
 		UserTable,
 		PaginationBar,
-		NewUserModal
+		UserModal
 	},
 	data() {
 		return {
