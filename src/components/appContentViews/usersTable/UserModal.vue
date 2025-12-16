@@ -50,7 +50,7 @@
             visible: { type: Boolean, default: false },
             selectedUser: { type: Object, default: () => null }
         },
-        emits: ['close', 'submit', 'edit'],
+        emits: ['close', 'submit', 'edit', 'error'],
         data() {
             return {
                 formData: {
@@ -96,14 +96,14 @@
             submitUser() {
 
                 if(this.formData.password !== this.formData.confirmPassword){
-                    alert("Passwords do not match!");
+                    this.$emit('error', 'Passwords do not match!');
                     return;
                 }
 
                 const users = localStorage.users ? JSON.parse(localStorage.users) : [...accounts];
 
                 if(users.find(acc => acc.name === this.formData.name)){
-                    alert("Username already exists!");
+                    this.$emit('error', 'Username already exists');
                     return;
                 }
 

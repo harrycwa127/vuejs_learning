@@ -15,6 +15,7 @@
 				<button class="loginBtn" @click="handleLogin">Login</button>
 			</div>
 		</div>
+		<ToastWidget ref="toastRef"/>
 	</div>
 </template>
 
@@ -22,8 +23,13 @@
 import accounts from '@/assets/account.json';
 import { useUserStore } from '@/store/user';
 
+import ToastWidget from '@/components/widget/ToastWidget.vue';
+
 export default {
 	name: 'LoginPage',
+	components: {
+		ToastWidget
+	},
 	methods: {
 		handleLogin() {
 			const username = document.querySelector('input[placeholder="Username"]').value;
@@ -36,8 +42,14 @@ export default {
 				userStore.setUser({ name: account.name, role: account.role });
 				this.$router.push('/home');
 			}else{
-				alert('Invalid username or password');
+				this.showError('Invalid username or password');
 			}
+		},
+		showSuccess(message='Successfully!') {
+			this.$refs.toastRef.showToast(message, 'success')
+		},
+		showError(message='Error!') {
+			this.$refs.toastRef.showToast(message, 'error')
 		}
 	}
 };

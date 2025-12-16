@@ -13,7 +13,8 @@
 					:total-items="filteredAccounts.length" :items-per-page="itemsPerPage" @page-change="handlePageChange" />
 		</div>
 		<div v-else class="no-results">No results found.</div>
-		<UserModal :visible="showUserModal" :selectedUser="selectedUser" @close="showUserModal = false" @submit="handleNewUser" @edit="handleUpdateUser"/>
+		<UserModal :visible="showUserModal" :selectedUser="selectedUser" @close="showUserModal = false" @submit="handleNewUser" @edit="handleUpdateUser" @error="showError"/>
+		<ToastWidget ref="toastRef"/>
 	</div>
 </template>
 
@@ -21,6 +22,8 @@
 import UserTable from '@/components/appContentViews/usersTable/UserTable.vue';
 import PaginationBar from '@/components/appContentViews/usersTable/PaginationBar.vue';
 import UserModal from '@/components/appContentViews/usersTable/UserModal.vue';
+import ToastWidget from '@/components/widget/ToastWidget.vue';
+
 
 import accounts from '@/assets/account.json';
 
@@ -29,7 +32,8 @@ export default {
 	components: {
 		UserTable,
 		PaginationBar,
-		UserModal
+		UserModal,
+		ToastWidget
 	},
 	data() {
 		return {
@@ -51,7 +55,7 @@ export default {
 		},
 		editUser() {
 			if(this.$refs.userTable.selectedUsers && this.$refs.userTable.selectedUsers.length !== 1){
-				alert("Please select one user!");
+				this.showError("Please select one user!");
 				return;
 			}else{
 				const selectedUser = this.accounts.find(acc => acc.name === this.$refs.userTable.selectedUsers[0]);
@@ -70,7 +74,7 @@ export default {
 
 			// clear selected users in table
 			this.$refs.userTable.selectedUsers = [];
-			// showSuccess();
+			this.showSuccess('Create User Successfully!');
 		},
 		handleUpdateUser(userName, updatedUser) {
 			this.showUserModal = false
@@ -81,7 +85,7 @@ export default {
 			if(index !== -1){
 				this.accounts.splice(index, 1, updatedUser);
 				localStorage.users = JSON.stringify(this.accounts);
-				// showSuccess();
+				this.showSuccess('Edit User Successfully!');
 			}else{
 				this.showError();
 			}
@@ -91,7 +95,10 @@ export default {
 		},
 		delUser() {
 			const selectedUserName = this.$refs.userTable.selectedUsers;
-			if(selectedUserName.length == 0) alert("No user selected!");
+			if(selectedUserName.length == 0) {
+				this.showError("No user selected!");
+				return;
+			}
 
 			for(let i = 0; i < selectedUserName.length; i++){
 				const username = selectedUserName[i]
@@ -99,16 +106,19 @@ export default {
 			}
 
 			localStorage.users = JSON.stringify(this.accounts);
-			// showSuccess();
+			this.showSuccess('Delete User Successfully!');
 		},
 		resetUser() {
 			localStorage.removeItem('users');
 			this.accounts = [...accounts];
 			this.$refs.userTable.selectedUsers = [];
-			// showSuccess();
+			this.showSuccess('Reset Users= List to Default Successfully!');
 		},
-		showError() {
-			// toastRef.value.showToast('提交失敗，請稍後再試', 'error')
+		showSuccess(message='Successfully!') {
+			this.$refs.toastRef.showToast(message, 'success')
+		},
+		showError(message='Error!') {
+			this.$refs.toastRef.showToast(message, 'error')
 		}
 	},
 	computed: {
