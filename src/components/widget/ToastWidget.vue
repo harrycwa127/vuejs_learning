@@ -44,7 +44,7 @@ export default {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     opacity: 0.95;
     z-index: 9999;
-    transition: all 2s ease;
+    transition: all 0.3s ease;
 }
 
 .toast.success {
